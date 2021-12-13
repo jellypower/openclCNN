@@ -1,0 +1,24 @@
+﻿  cnn_opencl.c
+D:\OpenCLProjects\cnn project\cnn_opencl.c(87,35): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\OpenCLProjects\cnn project\cnn_opencl.c(90,54): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\OpenCLProjects\cnn project\cnn_opencl.c(128,15): warning C4101: 'kernel_integral' :참조되지 않은 지역 변수입니다.
+D:\OpenCLProjects\cnn project\cnn_opencl.c(128,32): warning C4101: 'kernel_reduction' :참조되지 않은 지역 변수입니다.
+D:\OpenCLProjects\cnn project\cnn_opencl.c(130,12): warning C4101: 'bufOutput' :참조되지 않은 지역 변수입니다.
+D:\OpenCLProjects\cnn project\cnn_opencl.c(123,22): warning C4101: 'queue' :참조되지 않은 지역 변수입니다.
+D:\OpenCLProjects\cnn project\cnn_opencl.c(232,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
+D:\OpenCLProjects\cnn project\cnn_opencl.c(234,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
+D:\OpenCLProjects\cnn project\cnn_opencl.c(242,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
+D:\OpenCLProjects\cnn project\cnn_opencl.c(244,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
+  cnn_seq.c
+D:\OpenCLProjects\cnn project\cnn_seq.c(86,17): warning C4101: 'temp' :참조되지 않은 지역 변수입니다.
+D:\OpenCLProjects\cnn project\cnn_seq.c(232,29): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\OpenCLProjects\cnn project\cnn_seq.c(235,46): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  comapre.c
+  main.c
+D:\OpenCLProjects\cnn project\main.c(68,21): warning C4047: '함수': 'float **'의 간접 참조 수준이 'float *'과(와) 다릅니다.
+D:\OpenCLProjects\cnn project\main.c(68,14): warning C4024: 'cnn': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+  코드를 생성하고 있습니다.
+  Previous IPDB not found, fall back to full compilation.
+  All 17 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  cnn.vcxproj -> D:\OpenCLProjects\cnn project\Release\cnn.exe
