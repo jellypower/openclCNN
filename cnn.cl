@@ -3,7 +3,7 @@
 
 __kernel void convolution(__global float* input, __global float* output, __global float* filter, __constant float* bias,
 	const int inDim, const int outDim, const int nbyn,
-	int workDevide, __local float* sub, __local float* inter_conv, __local float* filter_tile) {
+	int workDevide, __local float* inter_conv) {
 
 	// filter_tile의 사이즈는 workDevide*(1024/(nbyn*nbun)/workDevide)*3*3이다.
 	//sub의 사이즈는 workDevide*nbyn*nbyn이다. -> sub의 용도는 inDim의 각 층층 이미지들을 타일링 하는것
@@ -49,44 +49,17 @@ __kernel void convolution(__global float* input, __global float* output, __globa
 
 	
 
-	//if (nbynpow == 256) filter += (10 * inDim * 9);
-	//else
 	filter += (GoutNo * inDim * 9); // filter를 내가 구하고자하는 outDim으로 이동시키기
 	
-	//if (nbynpow == 256) printf("%d\n", 9 * inDimOffset * dvdNo);
 
 
 	filter += 9 * inDimOffset * dvdNo;
-	//if (nbynpow == 256) printf("%d\n", 9 * inDimOffset * dvdNo);
-	
+
+
 	//여기서 inNeuron은 몇 번째 inDim인지 와 대응한다. 
 	for (int inNeuron = 0; inNeuron < inDimOffset; inNeuron++) { // workDevide만큼 inDim을 나눠서 계산
 		
 
-		if (LoutNo == 0) {
-			sub[nbynpow * dvdNo +nbyn * row + col] = input[nbynpow * (inNeuron + dvdNo * inDimOffset) + nbyn * row + col];
-			// work를 devide하면 sub가 2개 있어야 하는가?
-			// sub 는 각 차원을 1개씩 local에 타일링 해오는 것을 의미하기에 workDevide만큼 필요
-			
-		}
-		if (row < 3 && col < 3) {
-
-			filter_tile[LoutNoMax * dvdNo * 9 + 9 * LoutNo + 3 * row + col] = filter[3 * row + col];
-
-			if (nbyn < 3) { // 필터는 3*3인데 nbyn이 3*3보다 작은 2*2이면 타일링을 별도로 해줘야함.
-				if(col==1)
-					filter_tile[LoutNoMax * dvdNo * 9 + 9 * LoutNo + 3 * row + 2] = filter[3 * row + 2];
-				if(row==1)
-					filter_tile[LoutNoMax * dvdNo * 9 + 9 * LoutNo + 3 * 2 + col] = filter[3 * 2 + col];
-				if(col==1 && row==1)
-					filter_tile[LoutNoMax * dvdNo * 9 + 9 * LoutNo + 3 * 2 + 2] = filter[3 * 2 + 2];
-			}
-			
-		}
-		
-		
-
-		barrier(CLK_LOCAL_MEM_FENCE);
 	
 
 
@@ -97,42 +70,42 @@ __kernel void convolution(__global float* input, __global float* output, __globa
 				y = row + t_row - 1;
 				x = col + t_col - 1;
 
-				//row 의 max 는 31 li2의 max는 31 + 32*32*3
-
-				//inter_conv[workDevideOffset * ]
-
 				
 				inter_conv[workDevideOffset * dvdNo + nbynpow * LoutNo + nbyn * row + col]
-					+= (sub[nbynpow * dvdNo + nbyn * y + x]
-						* filter_tile[LoutNoMax * dvdNo * 9 + 9 * LoutNo + 3 * t_row + t_col]);
-						//* filter[3 * t_row + t_col]);
+					+=(input[nbynpow * (inNeuron + dvdNo * inDimOffset) + nbyn * y + x]
+					* filter[3 * t_row + t_col]);
 			}
 		}
+
+
 		filter += 9;
 
-		barrier(CLK_LOCAL_MEM_FENCE);
+
 
 	}
+
+
 
 	barrier(CLK_LOCAL_MEM_FENCE);
 
 
+	
+	for (int p = workDevide / 2; p >= 1; p = p >> 1) {
+
+		if (dvdNo < p) inter_conv[workDevideOffset * dvdNo + nbynpow * LoutNo + nbyn * row + col]
+			+= inter_conv[workDevideOffset * (dvdNo+p) + nbynpow * LoutNo + nbyn * row + col];
+
+		barrier(CLK_LOCAL_MEM_FENCE);
+	}
 
 	if (dvdNo == 0) {
-		float sum = 0;
-		for (int i = 0; i < workDevide; i++) {
+		float result = inter_conv[ nbynpow * LoutNo + nbyn * row + col]
+			+ bias[GoutNo];
+		output[nbynpow * GoutNo + nbyn * row + col] = result > 0 ? result : 0;
 
-			sum += inter_conv[workDevideOffset * i + nbynpow * LoutNo + nbyn * row + col];
-		}
-
-		
-
-		sum += bias[GoutNo];
-		
-		output[nbynpow * GoutNo + nbyn * row + col] =
-			sum > 0 ? sum : 0;
-		
 	}
+
+
 
 }
 
@@ -157,8 +130,6 @@ __kernel void max_pooling(__global float* input, __global float* output, const i
 	output += nbyn * nbyn * gi0;
 
 
-	//--------------------------------
-
 	tmp = input[(row * 2 + 0) * (nbyn*2) + (col * 2 + 0)];
 	max= tmp;
 	tmp = input[(row * 2 + 0) * (nbyn * 2) + (col * 2 + 1)];
@@ -171,18 +142,10 @@ __kernel void max_pooling(__global float* input, __global float* output, const i
 	output[row * nbyn + col] = max;
 
 
-	//if (gi0 == 0) printf("%d\n", output[row * nbyn + col]);
 	
 }
 
-/*__kernel void convolution(__global float* input, __global float* output, __global float* filter, __constant float* bias,
-	const int inDim, const int outDim, const int nbyn,
-	int workDevide, __local float* sub, __local float* inter_conv, __local float* filter_tile)
-	*/
 
-
-//global size 는 [INPUTDIM][OUTPUTDIM]
-//local size는 [INPUTDIM][1024/INPUTDIM]
 
 __kernel void fully_connected(__global float *input, __global float *output, __global float* filter, __constant float* bias,
 	__local float* subSum) {
@@ -197,10 +160,6 @@ __kernel void fully_connected(__global float *input, __global float *output, __g
 	
 	subSum[local_row * colSize + col] = input[col] * filter[row * colSize + col];
 
-	/*if (row == 0) printf("subSum[%d][%d]: %f = %f * %f\n", row, col, subSum[local_row * colSize + col],
-		input[col],
-		filter[row * colSize + col]
-	);*/
 
 	barrier(CLK_LOCAL_MEM_FENCE);
 	

@@ -174,10 +174,12 @@ struct openCLInfo openCLInit(const int PLAT_NO, const int DEV_NO) {
 
 
 
-    taskQueue = clCreateCommandQueue(context, devices[DEV_NO], CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err);
+    taskQueue = clCreateCommandQueue(context, devices[DEV_NO], CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE
+        | CL_QUEUE_PROFILING_ENABLE, &err);
     CHECK_ERROR(err);
 
-    memoryQueue = clCreateCommandQueue(context, devices[DEV_NO], CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err);
+    memoryQueue = clCreateCommandQueue(context, devices[DEV_NO], CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE
+        | CL_QUEUE_PROFILING_ENABLE, &err);
     CHECK_ERROR(err);
 
     kernel_source = get_source_code("cnn.cl", &kernel_source_size);
@@ -261,6 +263,16 @@ void cnn_init(float** network, float** w, float** b, cl_mem* layerBuf, struct op
 void cnn(float* images, float** network, int* labels, float* confidences, int num_images) {
 
 
+    cl_ulong execStart[21];
+    cl_ulong execEnd[21];
+
+    cl_ulong memStart0[21];
+    cl_ulong memEnd0[21];
+
+    cl_ulong memStart1[21];
+    cl_ulong memEnd1[21];
+
+
     struct openCLInfo clInfo;
 
     float* w[21];
@@ -319,9 +331,8 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[0] * NBYN[0], NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3, NULL);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
+
         CHECK_ERROR(err);
         // ===========> global[outDim][nbyn][nbyn][workDeivde]  =================> inDim으로부터 나오는 work size를 workDevide만큼 나눠보자.
         // ===========> local[1024/(nbyn*nbyn)/workDevide][nbyn][nbyn][workDevide]
@@ -349,9 +360,8 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[1] * NBYN[1], NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3, NULL);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
+
         CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[1];
@@ -394,7 +404,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[3], b[3], 1, &execEvent[0], &memEvent[3][1]);
         CHECK_ERROR(err);
 
-        workDevide = 2;
+        workDevide = 4;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf);
@@ -403,9 +413,8 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[3]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[3]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[3] * NBYN[3] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[3] * NBYN[3]) * workDevide, NULL);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
+
         CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[3];
@@ -430,7 +439,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf2, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[4], b[4], 1, &execEvent[1], &memEvent[4][1]);
         CHECK_ERROR(err);
 
-        workDevide = 2;
+        workDevide = 4;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf2);
@@ -439,10 +448,8 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[4]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[4]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[4] * NBYN[4] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[4] * NBYN[4]) * workDevide, NULL);
-        CHECK_ERROR(err);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
+         CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[4];
         global_size[1] = NBYN[4] * NBYN[4];
@@ -485,7 +492,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[6], b[6], 1, &execEvent[3], &memEvent[6][1]);
         CHECK_ERROR(err);
 
-        workDevide = 8;
+        workDevide = 16;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf);
@@ -494,9 +501,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[6]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[6]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[6] * NBYN[6] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[6] * NBYN[6]) * workDevide, NULL);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
         CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[6];
@@ -519,7 +524,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf2, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[7], b[7], 1, &execEvent[4], &memEvent[7][1]);
         CHECK_ERROR(err);
 
-        workDevide = 8;
+        workDevide = 16;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf2);
@@ -528,9 +533,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[7]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[7]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[7] * NBYN[7] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[7] * NBYN[7]) * workDevide, NULL);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
         CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[7];
@@ -555,7 +558,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[8], b[8], 1, &execEvent[6], &memEvent[8][1]);
         CHECK_ERROR(err);
 
-        workDevide = 8;
+        workDevide = 16;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf);
@@ -564,9 +567,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[8]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[8]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[8] * NBYN[8] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[8] * NBYN[8]) * workDevide, NULL);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
         CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[8];
@@ -608,7 +609,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf2, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[10], b[10], 1, &execEvent[7], &memEvent[10][1]);
         CHECK_ERROR(err);
 
-        workDevide = 16;
+        workDevide = 64;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf2);
@@ -617,9 +618,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[10]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[10]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[10] * NBYN[10] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[10] * NBYN[10]) * workDevide, NULL);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
         CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[10];
@@ -644,7 +643,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[11], b[11], 1, &execEvent[8], &memEvent[11][1]);
         CHECK_ERROR(err);
 
-        workDevide = 16;
+        workDevide = 64;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf);
@@ -653,10 +652,8 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[11]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[11]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[11] * NBYN[11] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[11] * NBYN[11]) * workDevide, NULL);
-        CHECK_ERROR(err);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
+       CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[11];
         global_size[1] = NBYN[11] * NBYN[11];
@@ -679,7 +676,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf2, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[12], b[12], 1, &execEvent[10], &memEvent[12][1]);
         CHECK_ERROR(err);
 
-        workDevide = 16;
+        workDevide = 64;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf2);
@@ -688,10 +685,8 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[12]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[12]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[12] * NBYN[12] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[12] * NBYN[12]) * workDevide, NULL);
-        CHECK_ERROR(err);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
+       CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[12];
         global_size[1] = NBYN[12] * NBYN[12];
@@ -734,7 +729,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[14], b[14], 1, &execEvent[11], &memEvent[14][1]);
         CHECK_ERROR(err);
 
-        workDevide = 4;
+        workDevide = 64;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf);
@@ -743,9 +738,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[14]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[14]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[14] * NBYN[14] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[14] * NBYN[14]) * workDevide, NULL);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
         CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[14];
@@ -769,7 +762,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf2, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[15], b[15], 1, &execEvent[12], &memEvent[15][1]);
         CHECK_ERROR(err);
 
-        workDevide = 4;
+        workDevide = 64;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf2);
@@ -778,10 +771,8 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[15]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[15]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[15] * NBYN[15] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[15] * NBYN[15]) * workDevide, NULL);
-        CHECK_ERROR(err);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
+       CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[15];
         global_size[1] = NBYN[15] * NBYN[15];
@@ -805,7 +796,7 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clEnqueueWriteBuffer(clInfo.memoryQueue, bBuf, CL_FALSE, 0, sizeof(float) * OUTPUT_DIM[16], b[16], 1, &execEvent[14], &memEvent[16][1]);
         CHECK_ERROR(err);
 
-        workDevide = 4;
+        workDevide = 64;
         err = clSetKernelArg(clInfo.kernel_conv, 0, sizeof(cl_mem), &layerBuf[0]);
         err = clSetKernelArg(clInfo.kernel_conv, 1, sizeof(cl_mem), &layerBuf[1]);
         err = clSetKernelArg(clInfo.kernel_conv, 2, sizeof(cl_mem), &wBuf);
@@ -814,10 +805,8 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
         err = clSetKernelArg(clInfo.kernel_conv, 5, sizeof(int), &OUTPUT_DIM[16]);
         err = clSetKernelArg(clInfo.kernel_conv, 6, sizeof(int), &NBYN[16]);
         err = clSetKernelArg(clInfo.kernel_conv, 7, sizeof(int), &workDevide);
-        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * NBYN[16] * NBYN[16] * workDevide, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 9, sizeof(float) * 1024, NULL);
-        err = clSetKernelArg(clInfo.kernel_conv, 10, sizeof(float) * 3 * 3 * 1024 / (NBYN[16] * NBYN[16]) * workDevide, NULL);
-        CHECK_ERROR(err);
+        err = clSetKernelArg(clInfo.kernel_conv, 8, sizeof(float) * 1024, NULL);
+       CHECK_ERROR(err);
 
         global_size[0] = OUTPUT_DIM[16];
         global_size[1] = NBYN[16] * NBYN[16];
@@ -927,6 +916,57 @@ void cnn(float* images, float** network, int* labels, float* confidences, int nu
 
         err = clEnqueueReadBuffer(clInfo.memoryQueue, layerBuf[1], CL_TRUE, 0, sizeof(float) * OUTPUT_DIM[20], result, 1, &execEvent[20], NULL);
         CHECK_ERROR(err);
+
+        /*
+        printf("elapsed exec time(ns):\n");
+        for (int i = 0; i < 21; i++) {
+            clGetEventProfilingInfo(execEvent[i], CL_PROFILING_COMMAND_START,
+                sizeof(cl_ulong), &execStart[i], NULL);
+
+            clGetEventProfilingInfo(execEvent[i], CL_PROFILING_COMMAND_END,
+                sizeof(cl_ulong), &execEnd[i], NULL);
+
+            printf("%u\n", execEnd[i] - execStart[i]);
+        }
+
+        printf("\n");
+
+        for (int i = 0; i < 21; i++) {
+            
+            if (i == 2 || i == 5 || i == 9 || i == 13 | i==17) i++;
+            
+
+            clGetEventProfilingInfo(memEvent[i][0], CL_PROFILING_COMMAND_START,
+                sizeof(cl_ulong), &memStart0[i], NULL);
+
+            clGetEventProfilingInfo(memEvent[i][0], CL_PROFILING_COMMAND_END,
+                sizeof(cl_ulong), &memEnd0[i], NULL);
+
+        }
+
+
+        for (int i = 0; i < 21; i++) {
+            int sum = 0;
+
+            if (i == 2 || i == 5 || i == 9 || i == 13 | i == 17) i++;
+
+            clGetEventProfilingInfo(memEvent[i][1], CL_PROFILING_COMMAND_START,
+                sizeof(cl_ulong), &memStart1[i], NULL);
+
+            clGetEventProfilingInfo(memEvent[i][1], CL_PROFILING_COMMAND_END,
+                sizeof(cl_ulong), &memEnd1[i], NULL);
+
+        }
+
+        printf("elapsed mem time(ns):\n");
+        for(int i=0;i<21;i++){
+            if (i == 2 || i == 5 || i == 9 || i == 13 | i == 17) {
+                i++;
+                printf("\n");
+            }
+            printf("%u\n", memEnd0[i] + memEnd1[i]  - memStart0[i] - memStart1[i]);
+        }
+        printf("\n");*/
 
 
         //clFinish(clInfo.taskQueue);

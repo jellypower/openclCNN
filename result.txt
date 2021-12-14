@@ -95,7 +95,7 @@ Image 0093 : 6 : frog      	0.996443
 Image 0094 : 4 : deer      	0.824658
 Image 0095 : 6 : frog      	0.590553
 Image 0096 : 6 : frog      	0.946157
-Image 0097 : 0 : airplane  	0.858533
+Image 0097 : 0 : airplane  	0.858534
 Image 0098 : 0 : airplane  	0.833072
 Image 0099 : 7 : horse     	0.997697
 Image 0100 : 4 : deer      	0.888730
@@ -126,7 +126,7 @@ Image 0124 : 8 : ship      	0.938718
 Image 0125 : 2 : bird      	0.440273
 Image 0126 : 8 : ship      	0.969714
 Image 0127 : 3 : cat       	0.490123
-Image 0128 : 6 : frog      	0.471554
+Image 0128 : 6 : frog      	0.471555
 Image 0129 : 2 : bird      	0.732006
 Image 0130 : 4 : deer      	0.992870
 Image 0131 : 1 : automobile	0.999983
@@ -226,7 +226,7 @@ Image 0224 : 3 : cat       	0.711764
 Image 0225 : 9 : truck     	0.985542
 Image 0226 : 6 : frog      	0.709517
 Image 0227 : 4 : deer      	0.995579
-Image 0228 : 3 : cat       	0.636629
+Image 0228 : 3 : cat       	0.636630
 Image 0229 : 6 : frog      	0.927034
 Image 0230 : 5 : dog       	0.925291
 Image 0231 : 1 : automobile	0.999700
@@ -243,9 +243,9 @@ Image 0241 : 1 : automobile	0.997133
 Image 0242 : 1 : automobile	0.681598
 Image 0243 : 9 : truck     	0.997908
 Image 0244 : 0 : airplane  	0.987566
-Image 0245 : 2 : bird      	0.500331
+Image 0245 : 2 : bird      	0.500330
 Image 0246 : 1 : automobile	0.996774
-Image 0247 : 9 : truck     	0.716527
+Image 0247 : 9 : truck     	0.716528
 Image 0248 : 2 : bird      	0.985868
 Image 0249 : 2 : bird      	0.655084
 Image 0250 : 5 : dog       	0.975892
@@ -306,7 +306,7 @@ Image 0304 : 6 : frog      	0.983663
 Image 0305 : 1 : automobile	0.949701
 Image 0306 : 9 : truck     	0.431203
 Image 0307 : 2 : bird      	0.979743
-Image 0308 : 9 : truck     	0.586895
+Image 0308 : 9 : truck     	0.586894
 Image 0309 : 6 : frog      	0.382427
 Image 0310 : 1 : automobile	0.952055
 Image 0311 : 6 : frog      	0.991612
@@ -333,7 +333,7 @@ Image 0331 : 9 : truck     	0.979749
 Image 0332 : 6 : frog      	0.586481
 Image 0333 : 6 : frog      	0.997988
 Image 0334 : 6 : frog      	0.994280
-Image 0335 : 9 : truck     	0.953005
+Image 0335 : 9 : truck     	0.953006
 Image 0336 : 3 : cat       	0.997364
 Image 0337 : 8 : ship      	0.991710
 Image 0338 : 0 : airplane  	0.834525
@@ -350,7 +350,7 @@ Image 0348 : 8 : ship      	0.993518
 Image 0349 : 9 : truck     	0.806133
 Image 0350 : 9 : truck     	0.999784
 Image 0351 : 1 : automobile	0.998597
-Image 0352 : 0 : airplane  	0.643517
+Image 0352 : 0 : airplane  	0.643516
 Image 0353 : 2 : bird      	0.999393
 Image 0354 : 2 : bird      	0.987533
 Image 0355 : 4 : deer      	0.789453
@@ -368,10 +368,10 @@ Image 0366 : 1 : automobile	0.734094
 Image 0367 : 3 : cat       	0.709678
 Image 0368 : 8 : ship      	0.664036
 Image 0369 : 1 : automobile	0.998357
-Image 0370 : 4 : deer      	0.549992
+Image 0370 : 4 : deer      	0.549991
 Image 0371 : 7 : horse     	0.999076
 Image 0372 : 9 : truck     	0.994122
-Image 0373 : 2 : bird      	0.503973
+Image 0373 : 2 : bird      	0.503974
 Image 0374 : 2 : bird      	0.999537
 Image 0375 : 7 : horse     	0.996560
 Image 0376 : 9 : truck     	0.647433
@@ -391,7 +391,7 @@ Image 0389 : 5 : dog       	0.981358
 Image 0390 : 1 : automobile	0.999680
 Image 0391 : 2 : bird      	0.999752
 Image 0392 : 6 : frog      	0.992984
-Image 0393 : 2 : bird      	0.526118
+Image 0393 : 2 : bird      	0.526117
 Image 0394 : 9 : truck     	0.804544
 Image 0395 : 6 : frog      	0.991650
 Image 0396 : 2 : bird      	0.922719
@@ -457,12 +457,12 @@ Image 0455 : 4 : deer      	0.991758
 Image 0456 : 4 : deer      	0.411267
 Image 0457 : 5 : dog       	0.968267
 Image 0458 : 3 : cat       	0.613296
-Image 0459 : 6 : frog      	0.775481
+Image 0459 : 6 : frog      	0.775480
 Image 0460 : 5 : dog       	0.996409
 Image 0461 : 6 : frog      	0.980662
 Image 0462 : 1 : automobile	0.983825
 Image 0463 : 4 : deer      	0.818880
-Image 0464 : 3 : cat       	0.956299
+Image 0464 : 3 : cat       	0.956300
 Image 0465 : 4 : deer      	0.993397
 Image 0466 : 4 : deer      	0.902274
 Image 0467 : 3 : cat       	0.993086
@@ -500,7 +500,7 @@ Image 0498 : 2 : bird      	0.999950
 Image 0499 : 0 : airplane  	0.709699
 Image 0500 : 4 : deer      	0.972390
 Image 0501 : 6 : frog      	0.959283
-Image 0502 : 5 : dog       	0.878280
+Image 0502 : 5 : dog       	0.878281
 Image 0503 : 4 : deer      	0.968664
 Image 0504 : 9 : truck     	0.997487
 Image 0505 : 4 : deer      	0.997568
@@ -515,8 +515,8 @@ Image 0513 : 1 : automobile	0.903920
 Image 0514 : 5 : dog       	0.935422
 Image 0515 : 3 : cat       	0.909066
 Image 0516 : 8 : ship      	0.999352
-Image 0517 : 9 : truck     	0.996177
-Image 0518 : 3 : cat       	0.473482
+Image 0517 : 9 : truck     	0.996176
+Image 0518 : 3 : cat       	0.473481
 Image 0519 : 8 : ship      	0.737984
 Image 0520 : 5 : dog       	0.849576
 Image 0521 : 7 : horse     	0.999968
@@ -525,7 +525,7 @@ Image 0523 : 7 : horse     	0.996838
 Image 0524 : 0 : airplane  	0.691554
 Image 0525 : 5 : dog       	0.711084
 Image 0526 : 0 : airplane  	0.379159
-Image 0527 : 0 : airplane  	0.786066
+Image 0527 : 0 : airplane  	0.786067
 Image 0528 : 4 : deer      	0.995697
 Image 0529 : 6 : frog      	0.998914
 Image 0530 : 9 : truck     	0.999456
@@ -561,7 +561,7 @@ Image 0559 : 2 : bird      	1.000000
 Image 0560 : 0 : airplane  	0.996422
 Image 0561 : 7 : horse     	0.998666
 Image 0562 : 6 : frog      	0.893102
-Image 0563 : 2 : bird      	0.807484
+Image 0563 : 2 : bird      	0.807485
 Image 0564 : 2 : bird      	0.998051
 Image 0565 : 3 : cat       	0.708848
 Image 0566 : 9 : truck     	0.992577
@@ -599,13 +599,13 @@ Image 0597 : 2 : bird      	0.520775
 Image 0598 : 3 : cat       	0.769253
 Image 0599 : 3 : cat       	0.953018
 Image 0600 : 8 : ship      	0.912107
-Image 0601 : 5 : dog       	0.903335
+Image 0601 : 5 : dog       	0.903334
 Image 0602 : 0 : airplane  	0.996179
 Image 0603 : 2 : bird      	0.999802
 Image 0604 : 1 : automobile	0.999918
 Image 0605 : 6 : frog      	0.998465
 Image 0606 : 4 : deer      	0.946471
-Image 0607 : 3 : cat       	0.630364
+Image 0607 : 3 : cat       	0.630363
 Image 0608 : 3 : cat       	0.995457
 Image 0609 : 9 : truck     	0.999990
 Image 0610 : 6 : frog      	0.996872
@@ -638,7 +638,7 @@ Image 0636 : 8 : ship      	0.944343
 Image 0637 : 3 : cat       	0.790601
 Image 0638 : 0 : airplane  	0.990837
 Image 0639 : 5 : dog       	0.497016
-Image 0640 : 3 : cat       	0.597196
+Image 0640 : 3 : cat       	0.597197
 Image 0641 : 3 : cat       	0.988765
 Image 0642 : 0 : airplane  	0.845754
 Image 0643 : 7 : horse     	0.999150
@@ -653,7 +653,7 @@ Image 0651 : 9 : truck     	0.946284
 Image 0652 : 5 : dog       	0.599356
 Image 0653 : 6 : frog      	0.752171
 Image 0654 : 9 : truck     	0.979788
-Image 0655 : 4 : deer      	0.813324
+Image 0655 : 4 : deer      	0.813323
 Image 0656 : 1 : automobile	0.999951
 Image 0657 : 1 : automobile	0.867225
 Image 0658 : 4 : deer      	0.966688
@@ -673,10 +673,10 @@ Image 0671 : 3 : cat       	0.700697
 Image 0672 : 7 : horse     	0.300204
 Image 0673 : 3 : cat       	0.999867
 Image 0674 : 2 : bird      	0.925387
-Image 0675 : 8 : ship      	0.733025
+Image 0675 : 8 : ship      	0.733024
 Image 0676 : 3 : cat       	0.996384
 Image 0677 : 1 : automobile	0.954435
-Image 0678 : 0 : airplane  	0.339014
+Image 0678 : 0 : airplane  	0.339013
 Image 0679 : 5 : dog       	0.904463
 Image 0680 : 1 : automobile	0.773051
 Image 0681 : 6 : frog      	0.998938
@@ -774,7 +774,7 @@ Image 0772 : 6 : frog      	0.988139
 Image 0773 : 6 : frog      	0.555411
 Image 0774 : 0 : airplane  	0.938578
 Image 0775 : 4 : deer      	0.443868
-Image 0776 : 5 : dog       	0.662820
+Image 0776 : 5 : dog       	0.662819
 Image 0777 : 6 : frog      	0.998696
 Image 0778 : 0 : airplane  	0.970747
 Image 0779 : 6 : frog      	0.623234
@@ -790,11 +790,11 @@ Image 0788 : 6 : frog      	0.929491
 Image 0789 : 8 : ship      	0.996620
 Image 0790 : 3 : cat       	0.946674
 Image 0791 : 0 : airplane  	0.991938
-Image 0792 : 7 : horse     	0.250360
+Image 0792 : 7 : horse     	0.250359
 Image 0793 : 4 : deer      	0.644478
 Image 0794 : 7 : horse     	0.953286
 Image 0795 : 7 : horse     	0.992851
-Image 0796 : 9 : truck     	0.415358
+Image 0796 : 9 : truck     	0.415359
 Image 0797 : 4 : deer      	0.956183
 Image 0798 : 7 : horse     	0.949985
 Image 0799 : 2 : bird      	0.752168
@@ -815,7 +815,7 @@ Image 0813 : 2 : bird      	0.999842
 Image 0814 : 0 : airplane  	0.614126
 Image 0815 : 8 : ship      	0.990737
 Image 0816 : 9 : truck     	0.998306
-Image 0817 : 5 : dog       	0.537682
+Image 0817 : 5 : dog       	0.537681
 Image 0818 : 8 : ship      	0.847752
 Image 0819 : 3 : cat       	0.782921
 Image 0820 : 6 : frog      	0.929539
@@ -823,7 +823,7 @@ Image 0821 : 2 : bird      	0.996027
 Image 0822 : 0 : airplane  	0.761971
 Image 0823 : 8 : ship      	0.990861
 Image 0824 : 7 : horse     	0.999137
-Image 0825 : 3 : cat       	0.919814
+Image 0825 : 3 : cat       	0.919813
 Image 0826 : 7 : horse     	0.994565
 Image 0827 : 6 : frog      	0.998558
 Image 0828 : 5 : dog       	0.482240
@@ -884,7 +884,7 @@ Image 0882 : 2 : bird      	0.454812
 Image 0883 : 0 : airplane  	0.386190
 Image 0884 : 9 : truck     	0.861840
 Image 0885 : 0 : airplane  	0.941538
-Image 0886 : 0 : airplane  	0.633332
+Image 0886 : 0 : airplane  	0.633331
 Image 0887 : 1 : automobile	0.921636
 Image 0888 : 8 : ship      	0.600942
 Image 0889 : 4 : deer      	0.499555
@@ -923,7 +923,7 @@ Image 0921 : 9 : truck     	0.999891
 Image 0922 : 9 : truck     	0.872638
 Image 0923 : 9 : truck     	0.764045
 Image 0924 : 3 : cat       	0.461187
-Image 0925 : 3 : cat       	0.567762
+Image 0925 : 3 : cat       	0.567761
 Image 0926 : 8 : ship      	0.988045
 Image 0927 : 6 : frog      	0.941265
 Image 0928 : 0 : airplane  	0.967801
@@ -995,7 +995,7 @@ Image 0993 : 4 : deer      	0.494278
 Image 0994 : 6 : frog      	0.801641
 Image 0995 : 3 : cat       	0.961558
 Image 0996 : 8 : ship      	0.961836
-Image 0997 : 1 : automobile	0.868111
+Image 0997 : 1 : automobile	0.868112
 Image 0998 : 3 : cat       	0.997660
 Image 0999 : 8 : ship      	0.999588
 Image 1000 : 5 : dog       	0.938340
@@ -1034,7 +1034,7 @@ Image 1032 : 6 : frog      	0.704612
 Image 1033 : 3 : cat       	0.981403
 Image 1034 : 3 : cat       	0.621936
 Image 1035 : 6 : frog      	0.597437
-Image 1036 : 0 : airplane  	0.960388
+Image 1036 : 0 : airplane  	0.960387
 Image 1037 : 7 : horse     	0.999862
 Image 1038 : 2 : bird      	0.999643
 Image 1039 : 2 : bird      	0.851630
@@ -1110,7 +1110,7 @@ Image 1108 : 2 : bird      	0.998205
 Image 1109 : 0 : airplane  	0.992794
 Image 1110 : 2 : bird      	0.999995
 Image 1111 : 8 : ship      	0.987729
-Image 1112 : 3 : cat       	0.759332
+Image 1112 : 3 : cat       	0.759333
 Image 1113 : 8 : ship      	0.995983
 Image 1114 : 9 : truck     	0.992328
 Image 1115 : 1 : automobile	0.998388
@@ -1118,8 +1118,8 @@ Image 1116 : 5 : dog       	0.972124
 Image 1117 : 5 : dog       	0.984399
 Image 1118 : 4 : deer      	0.481380
 Image 1119 : 7 : horse     	0.999673
-Image 1120 : 5 : dog       	0.831490
-Image 1121 : 3 : cat       	0.458502
+Image 1120 : 5 : dog       	0.831489
+Image 1121 : 3 : cat       	0.458501
 Image 1122 : 8 : ship      	0.984695
 Image 1123 : 3 : cat       	0.991884
 Image 1124 : 3 : cat       	0.752506
@@ -1128,7 +1128,7 @@ Image 1126 : 0 : airplane  	0.597188
 Image 1127 : 8 : ship      	0.998480
 Image 1128 : 4 : deer      	0.818894
 Image 1129 : 3 : cat       	0.441947
-Image 1130 : 7 : horse     	0.940246
+Image 1130 : 7 : horse     	0.940247
 Image 1131 : 9 : truck     	0.744973
 Image 1132 : 2 : bird      	0.902954
 Image 1133 : 4 : deer      	0.962983
@@ -1190,7 +1190,7 @@ Image 1188 : 0 : airplane  	0.975616
 Image 1189 : 0 : airplane  	0.954367
 Image 1190 : 1 : automobile	0.999866
 Image 1191 : 1 : automobile	0.971719
-Image 1192 : 6 : frog      	0.918001
+Image 1192 : 6 : frog      	0.918002
 Image 1193 : 5 : dog       	0.387618
 Image 1194 : 4 : deer      	0.992252
 Image 1195 : 6 : frog      	0.995497
@@ -1234,7 +1234,7 @@ Image 1232 : 1 : automobile	0.999989
 Image 1233 : 4 : deer      	0.999445
 Image 1234 : 1 : automobile	0.999936
 Image 1235 : 5 : dog       	0.986999
-Image 1236 : 3 : cat       	0.460088
+Image 1236 : 3 : cat       	0.460087
 Image 1237 : 0 : airplane  	0.964254
 Image 1238 : 1 : automobile	0.989979
 Image 1239 : 5 : dog       	0.724036
@@ -1256,7 +1256,7 @@ Image 1254 : 2 : bird      	0.997965
 Image 1255 : 4 : deer      	0.998184
 Image 1256 : 9 : truck     	0.993048
 Image 1257 : 2 : bird      	0.999719
-Image 1258 : 1 : automobile	0.864691
+Image 1258 : 1 : automobile	0.864690
 Image 1259 : 8 : ship      	0.997884
 Image 1260 : 1 : automobile	0.997689
 Image 1261 : 9 : truck     	0.913120
@@ -1304,7 +1304,7 @@ Image 1302 : 6 : frog      	0.956205
 Image 1303 : 4 : deer      	0.962334
 Image 1304 : 4 : deer      	0.750825
 Image 1305 : 9 : truck     	0.997786
-Image 1306 : 1 : automobile	0.908252
+Image 1306 : 1 : automobile	0.908253
 Image 1307 : 2 : bird      	0.780778
 Image 1308 : 5 : dog       	0.716036
 Image 1309 : 6 : frog      	0.894769
@@ -1320,7 +1320,7 @@ Image 1318 : 5 : dog       	0.860409
 Image 1319 : 0 : airplane  	0.936736
 Image 1320 : 7 : horse     	0.997646
 Image 1321 : 2 : bird      	0.870155
-Image 1322 : 9 : truck     	0.874828
+Image 1322 : 9 : truck     	0.874829
 Image 1323 : 0 : airplane  	0.874518
 Image 1324 : 4 : deer      	0.964174
 Image 1325 : 2 : bird      	0.442571
@@ -1351,7 +1351,7 @@ Image 1349 : 8 : ship      	0.998599
 Image 1350 : 4 : deer      	0.609315
 Image 1351 : 7 : horse     	0.999992
 Image 1352 : 2 : bird      	0.688326
-Image 1353 : 3 : cat       	0.621413
+Image 1353 : 3 : cat       	0.621412
 Image 1354 : 1 : automobile	0.996225
 Image 1355 : 3 : cat       	0.670398
 Image 1356 : 2 : bird      	0.948712
@@ -1388,7 +1388,7 @@ Image 1386 : 3 : cat       	0.998465
 Image 1387 : 9 : truck     	0.999956
 Image 1388 : 5 : dog       	0.832570
 Image 1389 : 5 : dog       	0.495699
-Image 1390 : 6 : frog      	0.977874
+Image 1390 : 6 : frog      	0.977873
 Image 1391 : 5 : dog       	0.351534
 Image 1392 : 2 : bird      	0.990934
 Image 1393 : 2 : bird      	0.468770
@@ -1433,7 +1433,7 @@ Image 1431 : 4 : deer      	0.948117
 Image 1432 : 9 : truck     	0.999946
 Image 1433 : 7 : horse     	0.887572
 Image 1434 : 0 : airplane  	0.963535
-Image 1435 : 1 : automobile	0.985476
+Image 1435 : 1 : automobile	0.985477
 Image 1436 : 6 : frog      	0.974289
 Image 1437 : 1 : automobile	0.983433
 Image 1438 : 5 : dog       	0.664319
@@ -1483,7 +1483,7 @@ Image 1481 : 2 : bird      	0.999951
 Image 1482 : 8 : ship      	0.897673
 Image 1483 : 6 : frog      	0.999739
 Image 1484 : 4 : deer      	0.994133
-Image 1485 : 0 : airplane  	0.727219
+Image 1485 : 0 : airplane  	0.727220
 Image 1486 : 7 : horse     	0.989357
 Image 1487 : 9 : truck     	0.995398
 Image 1488 : 8 : ship      	0.975915
@@ -1493,7 +1493,7 @@ Image 1491 : 6 : frog      	0.611771
 Image 1492 : 1 : automobile	0.438248
 Image 1493 : 1 : automobile	0.939457
 Image 1494 : 7 : horse     	0.641099
-Image 1495 : 0 : airplane  	0.748625
+Image 1495 : 0 : airplane  	0.748626
 Image 1496 : 2 : bird      	0.978407
 Image 1497 : 8 : ship      	0.999071
 Image 1498 : 3 : cat       	0.581677
@@ -1527,7 +1527,7 @@ Image 1525 : 3 : cat       	0.888349
 Image 1526 : 4 : deer      	0.993424
 Image 1527 : 2 : bird      	0.407698
 Image 1528 : 2 : bird      	0.999998
-Image 1529 : 4 : deer      	0.472124
+Image 1529 : 4 : deer      	0.472123
 Image 1530 : 3 : cat       	0.955058
 Image 1531 : 7 : horse     	0.946231
 Image 1532 : 8 : ship      	0.975828
@@ -1578,7 +1578,7 @@ Image 1576 : 7 : horse     	0.788221
 Image 1577 : 6 : frog      	0.476789
 Image 1578 : 6 : frog      	0.996325
 Image 1579 : 0 : airplane  	0.375576
-Image 1580 : 6 : frog      	0.459615
+Image 1580 : 6 : frog      	0.459616
 Image 1581 : 2 : bird      	0.604883
 Image 1582 : 9 : truck     	0.999516
 Image 1583 : 1 : automobile	0.947014
@@ -1640,7 +1640,7 @@ Image 1638 : 4 : deer      	0.835333
 Image 1639 : 9 : truck     	0.978522
 Image 1640 : 7 : horse     	0.752784
 Image 1641 : 6 : frog      	0.994410
-Image 1642 : 5 : dog       	0.768799
+Image 1642 : 5 : dog       	0.768798
 Image 1643 : 9 : truck     	0.996938
 Image 1644 : 6 : frog      	0.576356
 Image 1645 : 4 : deer      	0.994935
@@ -1693,7 +1693,7 @@ Image 1691 : 8 : ship      	0.987713
 Image 1692 : 9 : truck     	0.957738
 Image 1693 : 4 : deer      	0.543729
 Image 1694 : 0 : airplane  	0.640355
-Image 1695 : 9 : truck     	0.994803
+Image 1695 : 9 : truck     	0.994802
 Image 1696 : 4 : deer      	0.727753
 Image 1697 : 9 : truck     	0.998955
 Image 1698 : 5 : dog       	0.766043
@@ -1754,7 +1754,7 @@ Image 1752 : 5 : dog       	0.987637
 Image 1753 : 6 : frog      	0.986855
 Image 1754 : 7 : horse     	0.998003
 Image 1755 : 7 : horse     	0.994257
-Image 1756 : 2 : bird      	0.390532
+Image 1756 : 2 : bird      	0.390533
 Image 1757 : 6 : frog      	0.618839
 Image 1758 : 2 : bird      	0.999668
 Image 1759 : 5 : dog       	0.622569
@@ -1766,9 +1766,9 @@ Image 1764 : 5 : dog       	0.950952
 Image 1765 : 2 : bird      	0.759480
 Image 1766 : 6 : frog      	0.900522
 Image 1767 : 2 : bird      	0.888417
-Image 1768 : 2 : bird      	0.880910
+Image 1768 : 2 : bird      	0.880909
 Image 1769 : 1 : automobile	0.991291
-Image 1770 : 7 : horse     	0.785288
+Image 1770 : 7 : horse     	0.785289
 Image 1771 : 2 : bird      	0.993195
 Image 1772 : 9 : truck     	0.604573
 Image 1773 : 5 : dog       	0.598386
@@ -1810,12 +1810,12 @@ Image 1808 : 9 : truck     	0.998874
 Image 1809 : 8 : ship      	0.993731
 Image 1810 : 1 : automobile	0.999997
 Image 1811 : 1 : automobile	0.742264
-Image 1812 : 5 : dog       	0.431580
+Image 1812 : 5 : dog       	0.431579
 Image 1813 : 0 : airplane  	0.478325
 Image 1814 : 9 : truck     	0.689390
 Image 1815 : 9 : truck     	0.999638
 Image 1816 : 7 : horse     	0.934845
-Image 1817 : 6 : frog      	0.924724
+Image 1817 : 6 : frog      	0.924723
 Image 1818 : 5 : dog       	0.932554
 Image 1819 : 0 : airplane  	0.978251
 Image 1820 : 8 : ship      	0.952002
@@ -2000,7 +2000,7 @@ Image 1998 : 8 : ship      	0.894034
 Image 1999 : 5 : dog       	0.999653
 Image 2000 : 1 : automobile	0.983758
 Image 2001 : 2 : bird      	0.397791
-Image 2002 : 4 : deer      	0.943915
+Image 2002 : 4 : deer      	0.943916
 Image 2003 : 5 : dog       	0.785132
 Image 2004 : 7 : horse     	0.999972
 Image 2005 : 5 : dog       	0.556848
@@ -2163,7 +2163,7 @@ Image 2161 : 7 : horse     	0.332614
 Image 2162 : 5 : dog       	0.961278
 Image 2163 : 7 : horse     	0.908559
 Image 2164 : 1 : automobile	0.999819
-Image 2165 : 0 : airplane  	0.529404
+Image 2165 : 0 : airplane  	0.529405
 Image 2166 : 2 : bird      	0.516658
 Image 2167 : 7 : horse     	0.810244
 Image 2168 : 5 : dog       	0.992752
@@ -2231,7 +2231,7 @@ Image 2229 : 4 : deer      	0.831049
 Image 2230 : 3 : cat       	0.989294
 Image 2231 : 3 : cat       	0.896985
 Image 2232 : 3 : cat       	0.432356
-Image 2233 : 3 : cat       	0.321380
+Image 2233 : 3 : cat       	0.321381
 Image 2234 : 7 : horse     	0.994670
 Image 2235 : 2 : bird      	0.999119
 Image 2236 : 5 : dog       	0.896496
@@ -2244,7 +2244,7 @@ Image 2242 : 6 : frog      	0.386313
 Image 2243 : 3 : cat       	0.378069
 Image 2244 : 9 : truck     	0.989535
 Image 2245 : 8 : ship      	0.720852
-Image 2246 : 1 : automobile	0.546184
+Image 2246 : 1 : automobile	0.546185
 Image 2247 : 5 : dog       	0.948889
 Image 2248 : 8 : ship      	0.880070
 Image 2249 : 0 : airplane  	0.999720
@@ -2298,7 +2298,7 @@ Image 2296 : 9 : truck     	0.996481
 Image 2297 : 7 : horse     	0.997362
 Image 2298 : 0 : airplane  	0.938113
 Image 2299 : 3 : cat       	0.543185
-Image 2300 : 3 : cat       	0.364487
+Image 2300 : 3 : cat       	0.364488
 Image 2301 : 2 : bird      	0.882957
 Image 2302 : 0 : airplane  	0.999375
 Image 2303 : 2 : bird      	0.999984
@@ -2337,7 +2337,7 @@ Image 2335 : 2 : bird      	0.778328
 Image 2336 : 9 : truck     	0.997429
 Image 2337 : 7 : horse     	0.997962
 Image 2338 : 6 : frog      	0.985505
-Image 2339 : 2 : bird      	0.603799
+Image 2339 : 2 : bird      	0.603800
 Image 2340 : 7 : horse     	0.998675
 Image 2341 : 0 : airplane  	0.998905
 Image 2342 : 5 : dog       	0.964844
@@ -2356,7 +2356,7 @@ Image 2354 : 8 : ship      	0.997032
 Image 2355 : 9 : truck     	0.407733
 Image 2356 : 8 : ship      	0.995952
 Image 2357 : 1 : automobile	0.999281
-Image 2358 : 7 : horse     	0.803619
+Image 2358 : 7 : horse     	0.803618
 Image 2359 : 2 : bird      	0.919641
 Image 2360 : 7 : horse     	0.889477
 Image 2361 : 2 : bird      	0.965999
@@ -2418,7 +2418,7 @@ Image 2416 : 6 : frog      	0.959453
 Image 2417 : 7 : horse     	0.988271
 Image 2418 : 8 : ship      	0.992718
 Image 2419 : 4 : deer      	0.436946
-Image 2420 : 8 : ship      	0.945059
+Image 2420 : 8 : ship      	0.945058
 Image 2421 : 8 : ship      	0.855391
 Image 2422 : 4 : deer      	0.505343
 Image 2423 : 2 : bird      	0.883678
@@ -2505,15 +2505,15 @@ Image 2503 : 8 : ship      	0.993170
 Image 2504 : 1 : automobile	0.876592
 Image 2505 : 7 : horse     	0.984672
 Image 2506 : 3 : cat       	0.750900
-Image 2507 : 0 : airplane  	0.763359
+Image 2507 : 0 : airplane  	0.763358
 Image 2508 : 6 : frog      	0.982594
 Image 2509 : 2 : bird      	0.380689
 Image 2510 : 4 : deer      	0.953875
-Image 2511 : 1 : automobile	0.506260
+Image 2511 : 1 : automobile	0.506261
 Image 2512 : 2 : bird      	0.998285
 Image 2513 : 2 : bird      	0.999995
 Image 2514 : 9 : truck     	0.958625
-Image 2515 : 2 : bird      	0.885985
+Image 2515 : 2 : bird      	0.885986
 Image 2516 : 2 : bird      	0.823898
 Image 2517 : 9 : truck     	0.993958
 Image 2518 : 7 : horse     	0.997057
@@ -2543,7 +2543,7 @@ Image 2541 : 1 : automobile	0.999988
 Image 2542 : 0 : airplane  	0.530802
 Image 2543 : 3 : cat       	0.710187
 Image 2544 : 2 : bird      	0.998300
-Image 2545 : 4 : deer      	0.847827
+Image 2545 : 4 : deer      	0.847828
 Image 2546 : 8 : ship      	0.997209
 Image 2547 : 4 : deer      	0.846438
 Image 2548 : 0 : airplane  	0.855576
@@ -2685,7 +2685,7 @@ Image 2683 : 5 : dog       	0.999954
 Image 2684 : 3 : cat       	0.673028
 Image 2685 : 2 : bird      	0.804460
 Image 2686 : 7 : horse     	0.987207
-Image 2687 : 8 : ship      	0.992544
+Image 2687 : 8 : ship      	0.992543
 Image 2688 : 5 : dog       	0.531294
 Image 2689 : 5 : dog       	0.827857
 Image 2690 : 6 : frog      	0.693398
@@ -2808,7 +2808,7 @@ Image 2806 : 2 : bird      	0.971627
 Image 2807 : 9 : truck     	0.834327
 Image 2808 : 2 : bird      	0.974135
 Image 2809 : 4 : deer      	0.790816
-Image 2810 : 0 : airplane  	0.299875
+Image 2810 : 0 : airplane  	0.299876
 Image 2811 : 2 : bird      	0.839976
 Image 2812 : 0 : airplane  	0.959835
 Image 2813 : 1 : automobile	0.999976
@@ -2845,7 +2845,7 @@ Image 2843 : 8 : ship      	0.439785
 Image 2844 : 2 : bird      	0.401522
 Image 2845 : 5 : dog       	0.416731
 Image 2846 : 6 : frog      	0.995123
-Image 2847 : 8 : ship      	0.925877
+Image 2847 : 8 : ship      	0.925876
 Image 2848 : 6 : frog      	0.989395
 Image 2849 : 6 : frog      	0.907581
 Image 2850 : 5 : dog       	0.974198
@@ -2953,7 +2953,7 @@ Image 2951 : 0 : airplane  	0.918761
 Image 2952 : 3 : cat       	0.847115
 Image 2953 : 8 : ship      	0.996340
 Image 2954 : 9 : truck     	0.992815
-Image 2955 : 2 : bird      	0.797884
+Image 2955 : 2 : bird      	0.797885
 Image 2956 : 0 : airplane  	0.968606
 Image 2957 : 8 : ship      	0.591196
 Image 2958 : 8 : ship      	0.808307
@@ -2974,7 +2974,7 @@ Image 2972 : 3 : cat       	0.995522
 Image 2973 : 0 : airplane  	0.934780
 Image 2974 : 9 : truck     	0.909736
 Image 2975 : 9 : truck     	0.895662
-Image 2976 : 0 : airplane  	0.553441
+Image 2976 : 0 : airplane  	0.553440
 Image 2977 : 2 : bird      	0.964700
 Image 2978 : 2 : bird      	0.912588
 Image 2979 : 0 : airplane  	0.997960
