@@ -1,23 +1,18 @@
 ﻿  cnn_opencl.c
-D:\OpenCLProjects\cnn project\cnn_opencl.c(87,35): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(90,54): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(128,15): warning C4101: 'kernel_integral' :참조되지 않은 지역 변수입니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(128,32): warning C4101: 'kernel_reduction' :참조되지 않은 지역 변수입니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(130,12): warning C4101: 'bufOutput' :참조되지 않은 지역 변수입니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(123,22): warning C4101: 'queue' :참조되지 않은 지역 변수입니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(234,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(236,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(244,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(246,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(266,14): warning C4101: 'execStart' :참조되지 않은 지역 변수입니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(269,14): warning C4101: 'memStart0' :참조되지 않은 지역 변수입니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(272,14): warning C4101: 'memStart1' :참조되지 않은 지역 변수입니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(270,14): warning C4101: 'memEnd0' :참조되지 않은 지역 변수입니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(267,14): warning C4101: 'execEnd' :참조되지 않은 지역 변수입니다.
-D:\OpenCLProjects\cnn project\cnn_opencl.c(273,14): warning C4101: 'memEnd1' :참조되지 않은 지역 변수입니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(88,35): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(91,54): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(129,15): warning C4101: 'kernel_integral' :참조되지 않은 지역 변수입니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(129,32): warning C4101: 'kernel_reduction' :참조되지 않은 지역 변수입니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(131,12): warning C4101: 'bufOutput' :참조되지 않은 지역 변수입니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(124,22): warning C4101: 'queue' :참조되지 않은 지역 변수입니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(270,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(272,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(280,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(282,32): warning C4047: '=': 'float *'의 간접 참조 수준이 'float **'과(와) 다릅니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(349,14): warning C4101: 'execStart' :참조되지 않은 지역 변수입니다.
+C:\Users\happy\Desktop\cnn project final\cnn project\cnn_opencl.c(350,14): warning C4101: 'execEnd' :참조되지 않은 지역 변수입니다.
   코드를 생성하고 있습니다.
-  5 of 17 functions (29.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    4 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 18 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   코드를 생성했습니다.
-  cnn.vcxproj -> D:\OpenCLProjects\cnn project\Release\cnn.exe
+  cnn.vcxproj -> C:\Users\happy\Desktop\cnn project final\cnn project\Release\cnn.exe

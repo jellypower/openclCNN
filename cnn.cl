@@ -89,21 +89,26 @@ __kernel void convolution(__global float* input, __global float* output, __globa
 	barrier(CLK_LOCAL_MEM_FENCE);
 
 
-	
+
 	for (int p = workDevide / 2; p >= 1; p = p >> 1) {
 
 		if (dvdNo < p) inter_conv[workDevideOffset * dvdNo + nbynpow * LoutNo + nbyn * row + col]
 			+= inter_conv[workDevideOffset * (dvdNo+p) + nbynpow * LoutNo + nbyn * row + col];
 
 		barrier(CLK_LOCAL_MEM_FENCE);
-	}
 
+	}
+	
 	if (dvdNo == 0) {
 		float result = inter_conv[ nbynpow * LoutNo + nbyn * row + col]
 			+ bias[GoutNo];
 		output[nbynpow * GoutNo + nbyn * row + col] = result > 0 ? result : 0;
 
 	}
+	
+
+
+	
 
 
 

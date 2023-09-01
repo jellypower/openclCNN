@@ -1,1 +1,3 @@
 D:\OpenCLProjects\cnn project\Release\cnn.exe
+C:\Users\happy\Desktop\cnn project\Release\cnn.exe
+C:\Users\happy\Desktop\cnn project final\cnn project\Release\cnn.exe
